@@ -40,7 +40,7 @@ function sendText (replyToken, msgbot) {
 request({
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': ''Bearer '+ Token
+      'Authorization': 'Bearer '+ Token
     },
     url: 'https://api.line.me/v2/bot/message/push',
     method: 'POST',
