@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 var Token = process.env.TOKEN || "xxx";
+var access_token = 'Bearer {'+Token+'}'
 
 app.get('/',function (req, res) {
     res.end("ok bot")
@@ -40,7 +41,7 @@ function sendText (replyToken, msgbot) {
 request({
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer '+ Token
+      'Authorization': access_token
     },
     url: 'https://api.line.me/v2/bot/message/push',
     method: 'POST',
