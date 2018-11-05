@@ -41,7 +41,7 @@ function sendText (replyToken, msgbot) {
 request({
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': access_token
+      'Authorization': 'Bearer {v5e3bZuW+ka/FjpM9BnSXpvupxIETNupeeYMI7x1ddi1PkX8qdGPM/KBNM/bFx6Y6baNj8FixU3qF78fG3Hl5ittVUXgVOqKVhWqV2zu0tJXKGs82WmEtIvv3syORvK2Ix2O46QDsZ9GZBiCmMMoTgdB04t89/1O/w1cDnyilFU=}'
     },
     url: 'https://api.line.me/v2/bot/message/push',
     method: 'POST',
