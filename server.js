@@ -14,20 +14,21 @@ app.get('/',function (req, res) {
     })
 
 app.post('/webhook', (req, res) => {
-  var  msg = req.body.events[0].message.text
-  var replyToken = req.body.events[0].replyToken
-	  sendText(replyToken, msg)
-   res.sendStatus(200)
+  var msgbot = req.body.events[0].message.text
+  var replyToken = req.body.events[0].replyToken  
+    res.sendStatus(200)
+    console.log(msgbot);
+    sendText(replyToken, msgbot)
 })
 
 /////////////////////////////////////
-function sendText (replyToken, msg) {
+function sendText (replyToken, msgbot) {
   let data = {
     to: replyToken,
     messages: [
       {
         type: 'text',
-        text: msg
+        text: msgbot
       }
     ]
   }
