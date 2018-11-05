@@ -17,6 +17,7 @@ app.get('/',function (req, res) {
 app.post('/webhook', (req, res) => {
   var msgbot = req.body.events[0].message.text
   var replyToken = req.body.events[0].replyToken  
+
     res.sendStatus(200)
     console.log(msgbot);
     sendText(replyToken, msgbot)
@@ -39,7 +40,7 @@ function sendText (replyToken, msgbot) {
 request({
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': Token
+      'Authorization': ''Bearer '+ Token
     },
     url: 'https://api.line.me/v2/bot/message/push',
     method: 'POST',
