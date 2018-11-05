@@ -25,29 +25,26 @@ app.post('/webhook', (req, res) => {
 })
 
 /////////////////////////////////////
-function sendText (replyToken, msgbot) {
-  let data = {
-    to: replyToken,
-    messages: [
-      {
-        type: 'text',
-        text: msgbot
-      }
-    ]
-  }
 
-
-//////////////////////////////////////
-request({
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer {v5e3bZuW+ka/FjpM9BnSXpvupxIETNupeeYMI7x1ddi1PkX8qdGPM/KBNM/bFx6Y6baNj8FixU3qF78fG3Hl5ittVUXgVOqKVhWqV2zu0tJXKGs82WmEtIvv3syORvK2Ix2O46QDsZ9GZBiCmMMoTgdB04t89/1O/w1cDnyilFU=}'
-    },
-    url: 'https://api.line.me/v2/bot/message/push',
-    method: 'POST',
-    body: data,
-    json: true
-  })
+function sendText(reply_token, msgbot) {
+    let headers = {
+        'Content-Type': 'application/json',
+        'Authorization': access_token
+    }
+    let body = JSON.stringify({
+        replyToken: reply_token,
+        messages: [{
+            type: 'text',
+            text: msgbot
+        }]
+    })
+    request.post({
+        url: 'https://api.line.me/v2/bot/message/reply',
+        headers: headers,
+        body: body
+    }, (err, res, body) => {
+        //console.log('status = ' + res.statusCode);
+    });
 }
 
 
