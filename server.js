@@ -8,7 +8,7 @@ app.set('port', (process.env.PORT || 5000))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-var Token = process.env.TOKEN || "xxx";
+var Token = process.env.TOKEN;
 var access_token = 'Bearer {'+Token+'}'
 
 app.get('/',function (req, res) {
